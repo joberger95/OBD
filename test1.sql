@@ -1,6 +1,0 @@
-CREATE TABLE IF NOT EXISTS visiteurs (
-    id int(5) NOT NULL AUTO_INCREMENT,
-    name varchar(50) DEFAULT NULL,
-    age INTEGER DEFAULT NULL,
-    PRIMARY KEY(id)
-);
