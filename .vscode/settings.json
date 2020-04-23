@@ -1,4 +1,6 @@
 {
     "python.pythonPath": "/usr/bin/python3.8",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "workbench.preferredHighContrastColorTheme": "Default Dark+",
+    "workbench.preferredLightColorTheme": "Default Dark+"
 }
