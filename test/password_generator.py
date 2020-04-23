@@ -23,7 +23,7 @@ frame = Frame(window, bg="#a5a2a2")
 # add picture
 width = 300
 height = 300
-picture = PhotoImage(file="image.png").zoom(35).subsample(32)
+picture = PhotoImage(file="test/image.png").zoom(35).subsample(32)
 
 canvas = Canvas(
     frame, width=width, height=height, bg="#a5a2a2", bd=0, highlightthickness=0
@@ -54,6 +54,15 @@ generate_button.pack(fill=X)
 
 right_frame.grid(row=0, column=1, sticky=W)
 
+# add barmenu
+menu_bar = Menu(window)
+# firtmenu
+file_menu = Menu(menu_bar, tearoff=0)
+file_menu.add_command(label="New", command=generate_passwd)
+file_menu.add_command(label="Quit", command=window.quit)
+menu_bar.add_cascade(label="File", menu=file_menu)
+# configuration
+window.config(menu=menu_bar)
 # frame
 frame.pack(expand=YES)
 
