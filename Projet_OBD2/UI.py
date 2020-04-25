@@ -1,5 +1,5 @@
 from tkinter import *
-import tkinter as tk
+from tkinter import ttk
 
 
 class Window(Tk):
@@ -11,10 +11,19 @@ class Window(Tk):
         self.config(bg="#c3c0bf")
         self.geometry("%dx%d" % (width, height))
 
+        self.frame = Frame(self, width=width / 10, height=height / 10, bg="white")
+        self.frame.pack()
+
         self.splash_screen()
+        self.asking_fields()
 
     def splash_screen(self):
         return None
+
+    def asking_fields(self):
+        self.string_field = StringVar()
+        self.field1 = Entry(self.frame, textvariable=self.string_field)
+        self.field1.grid(column=0, row=0)
 
 
 window = Window()
