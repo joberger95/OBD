@@ -2,20 +2,6 @@
 from PyPDF2 import PdfFileReader
 
 
-# def pdf_text_extractor(path):
-#     with open(path, "rb") as f:
-#         pdf = PdfFileReader(f)
-#         # get the first page
-#         page = pdf.getPage(32)
-#         # print(page)
-#         # print("Page type: {}".format(str(type(page))))
-#         text = page.extractText()
-#         index = text.find("P")
-#         text = text[index:]
-#         print("Indice de la lettre 'P' = ", index)
-#         print("Texte =\n", text)
-
-
 class Pdf_extractor:
     def __init__(self, file):
         with open(file, "rb") as file:
@@ -23,7 +9,15 @@ class Pdf_extractor:
             text = pdf.getPage(32).extractText()
             index = text.find("P")
             text = text[index:]
-            print(text)
+            # print(text)
+            self.extract_code(text, index)
+
+    def extract_code(self, text, index):
+        # for i in text:
+        line_feed = text.find("\n")
+        # print(line_feed)
+        text = text[:line_feed]
+        print(text)
 
 
 if __name__ == "__main__":
