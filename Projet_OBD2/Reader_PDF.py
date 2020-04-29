@@ -1,4 +1,5 @@
 # sudo apt-get install python3-pypdf2
+# Think to change file path in main
 from PyPDF2 import PdfFileReader
 
 
@@ -13,18 +14,16 @@ class Pdf_extractor:
             # print("Index de la lettre P:", index)
             carac = ("P", "-")
 
-            self.extract_line(text)
+            self.extract_code(self.extract_line(text), carac)
 
     def extract_line(self, text):
-        while self.text:
-            line_feed = text.find("\n")
-            # print(line_feed)
-            line = text[:line_feed]
-            # print(line)
-            self.extract_code(line, ("P", "-"))
-            self.text = text[line_feed:]
-            # print("Le texte est:\n", text)
-            return self.text
+        line_feed = text.find("\n")
+        # print(line_feed)
+        line = text[:line_feed]
+        # print(line)
+        text = text[line_feed:]
+        # print("Le texte est:\n", text)
+        return text
 
     def extract_code(self, line, carac):
         index = 0
