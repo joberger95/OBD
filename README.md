@@ -1,2 +1,2 @@
-# ODB
-ODB Python Program (database, GUI)
+# OBD
+OBD Python Program (database, GUI)
