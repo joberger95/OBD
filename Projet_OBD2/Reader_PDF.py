@@ -6,24 +6,16 @@ from PyPDF2 import PdfFileReader
 class Pdf_extractor:
     def __init__(self, file):
         with open(file, "rb") as file:
-            pdf = PdfFileReader(file)
-            text = pdf.getPage(32).extractText()
-            index = text.find("P0001")
-            text = text[index:]
-            # print(text)
-            # print("Index de la lettre P:", index)
-            carac = ("P", "-")
-
-            self.extract_code(self.extract_line(text), carac)
-
-    def extract_line(self, text):
-        line_feed = text.find("\n")
-        # print(line_feed)
-        line = text[:line_feed]
-        # print(line)
-        text = text[line_feed:]
-        # print("Le texte est:\n", text)
-        return text
+            pdfReader = PdfFileReader(file)
+            pages = pdfReader.numPages
+            for i in range(pages):
+                page = pdfReader.getPage(i)
+                # print("Page number: ", i)
+                text = page.extractText()
+                for i in range(len(text)):
+                    print(text[i])
+                    # print(text[i], end="")
+                # print()
 
     def extract_code(self, line, carac):
         index = 0
